@@ -39,7 +39,14 @@ contract VolunteerNFT is ERC721URIStorage {
      doGoodToken = _doGoodToken;
   }
 
-  function mintVolunteerNFT(uint _hours, string memory _charity, address _recipient, string memory _url) public payable returns (uint) {
+  function batchMint(address[] memory _recipients, uint[] memory _hours, string memory _charity, string memory _url) public {
+    uint len = _recipients.length;
+    for (uint i = 0; i < len; i++) {
+      mintVolunteerNFT(_hours[i], _charity, _recipients[i], _url);
+    }
+  }
+
+  function mintVolunteerNFT(uint _hours, string memory _charity, address _recipient, string memory _url) public returns (uint) {
     nftIds.increment();
     uint256 newNFTId = nftIds.current();
 
