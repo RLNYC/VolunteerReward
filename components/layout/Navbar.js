@@ -91,6 +91,9 @@ function Navbar({ account, setAccount, setDoGoodContract, setVolunteerContract }
         <Menu.Item key="nonprofit">
           <Link href="/nonprofit">👥 Nonprofit</Link>
         </Menu.Item>
+        <Menu.Item key="sponsor">
+          <Link href="/sponsor">📝 Sponsor</Link>
+        </Menu.Item>
         <Menu.Item key="reward">
           <Link href="/reward">💰 Reward</Link>
         </Menu.Item>
