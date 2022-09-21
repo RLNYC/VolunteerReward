@@ -64,10 +64,10 @@ function App({ volunteerContract }) {
     <Row gutter={16}>
       <Col className="gutter-row" xs={{ span: 32 }} md={{ span: 12 }}>
         <Typography.Title style={{ marginTop: '3rem', marginBottom: 0}}>
-          Volunteer to Earn
+          Volunteer Circle
         </Typography.Title>
         <p style={styles.SubHeader}>Volunteer</p>
-        <p style={styles.SubHeader}>Earn DoGood tokens</p>
+        <p style={styles.SubHeader}>Earn Volunteer tokens</p>
         <br />
         <Button className="primary-bg-color" type="primary" size="large" onClick={() => router.push(`/nonprofit`)}>
           Get STARTED
