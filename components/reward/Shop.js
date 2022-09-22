@@ -16,9 +16,9 @@ function Shop() {
               <img src="/sponser1.png" alt="Home" style={{ width: "100%", height: "100px", objectFit: "contain" }} />
             </Col>
             <Col xs={{ span: 24 }} lg={{ span: 12,  offset: 2 }}>
-              <p style={{ fontSize: "1.2rem", marginBottom: 0 }}>20 Matic tokens</p>
+              <p style={{ fontSize: "1.2rem", marginBottom: 0 }}>1 Matic token</p>
               <p style={{ fontSize: "1.2rem", marginBottom: 0 }}>For</p>
-              <p style={{ fontSize: "1.2rem", marginBottom: 0 }}>20 DoGood Tokens</p>
+              <p style={{ fontSize: "1.2rem", marginBottom: 0 }}>1 Volunteer token</p>
               <Button type="primary" disabled>
                 Redeem
               </Button>

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Layout, Menu, Dropdown, Button } from 'antd';
+import { Layout, Menu, Dropdown, Button, Tag } from 'antd';
 import { ethers } from 'ethers';
 import Web3Modal from 'web3modal';
+import axios from 'axios';
 
 import ERC20Contract from '../../build/contracts/ERC20Token.json';
 import VolunteerToEarnContract from '../../build/contracts/VolunteerNFT.json';
@@ -34,6 +35,29 @@ const styles = {
 };
 
 function Navbar({ account, setAccount, setDoGoodContract, setVolunteerContract }) {
+  const [balance, setBalance] = useState('');
+
+  useEffect(() => {
+    if(account) {
+      const options = {
+        method: 'GET',
+        url: `https://deep-index.moralis.io/api/v2/${account}/balance`,
+        params: {chain: 'mumbai'},
+        headers: {accept: 'application/json', 'X-API-Key': 'test'}
+      };
+      
+      axios
+        .request(options)
+        .then(function (response) {
+          console.log(response.data);
+          setBalance(response.data.balance);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
+  }, [account])
+  
   const menu = (
     <Menu
       items={[
@@ -99,6 +123,7 @@ function Navbar({ account, setAccount, setDoGoodContract, setVolunteerContract }
         </Menu.Item>
       </Menu>
       <div style={styles.headerRight}>
+      {balance && <Tag color="green">{balance / 10 ** 18} MATIC</Tag>}
       {account
         ? <Dropdown overlay={menu} placement="bottomLeft" arrow>
             <Button className='primary-bg-color'  type="primary">
